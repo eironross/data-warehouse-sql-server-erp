@@ -1,0 +1,11 @@
+﻿FacilityKey,Facility,City,Region,Capacity,IsActive,CreatedDate,BeginOps
+1,Central Supply Warehouse,Dallas,Texas,850,1,5/12/2021,6/11/2021
+2,North Distribution Center,Chicago,Illinois,600,1,9/8/2020,10/8/2020
+3,East Logistics Hub,Atlanta,Georgia,450,1,11/22/2019,12/22/2019
+4,West Storage Depot,Denver,Colorado,720,1,3/17/2022,4/16/2022
+5,South Regional Warehouse,Houston,Texas,900,1,1/4/2023,2/3/2023
+6,Riverbend Distribution Hub,St. Louis,Missouri,500,1,7/19/2021,8/18/2021
+7,Metro Supply Depot,New York,New York,400,1,4/25/2020,5/25/2020
+8,Highland Logistics Warehouse,Phoenix,Arizona,750,1,8/10/2022,9/9/2022
+9,Coastal Supply Center,Miami,Florida,670,1,12/3/2021,1/2/2022
+10,Lakeside Distribution Depot,Minneapolis,Minnesota,520,0,6/17/2024,6/17/2025

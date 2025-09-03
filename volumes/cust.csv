@@ -1,0 +1,21 @@
+﻿CustomerKey,FirstName,LastName,MiddleName,Gender,MaritalStatus,Email,City,IsActive,CreateDate,InsertedDate
+1,Sarah,Chang,Robert,F,W,sarah.chang@example.com,Vanessaside,1,2/13/2025,4/1/2021 14:14
+2,Emily,Blair,Rachel,F,W,emily.blair@example.com,North Jenniferfurt,1,4/26/2025,1/4/2020 13:12
+3,Lisa,Clayton,Mason,F,D,lisa.clayton@example.com,West Andreaville,1,8/27/2024,10/30/2022 19:40
+4,Robert,Fernandez,NULL,M,S,robert.fernandez@example.com,North Chloe,1,8/2/2025,3/18/2022 23:11
+5,John,Davis,NULL,M,S,john.davis@example.com,Vasquezstad,1,9/12/2020,10/4/2022 15:24
+6,Jessica,Obrien,Ryan,F,S,jessica.obrien@example.com,Racheltown,1,8/17/2022,9/6/2017 1:53
+7,William,Padilla,Stephen,M,M,william.padilla@example.com,Port Robert,1,5/8/2020,1/5/2021 2:56
+8,Steven,Smith,NULL,M,M,steven.smith@example.com,Sanchezstad,1,11/4/2021,9/17/2019 1:23
+9,Nancy,Graham,Jeffrey,F,D,nancy.graham@example.com,North Michelle,1,1/2/2020,4/21/2016 12:50
+10,Joseph,Martinez,Michael,M,M,joseph.martinez@example.com,South Susan,1,3/7/2017,11/22/2021 21:02
+11,Mark,Gonzales,Elizabeth,M,S,mark.gonzales@example.com,North Brianburgh,1,10/30/2021,8/28/2019 15:03
+12,Jennifer,Cooper,NULL,F,W,jennifer.cooper@example.com,North David,1,1/10/2021,4/19/2019 3:12
+13,Patricia,Sanchez,Joseph,F,M,patricia.sanchez@example.com,South Denise,1,7/24/2021,11/23/2016 12:24
+14,Matthew,Jenkins,NULL,M,W,matthew.jenkins@example.com,Martinland,1,3/6/2022,10/13/2018 20:16
+15,Karen,Allen,Ronald,F,S,karen.allen@example.com,Sheilaville,1,1/16/2025,7/27/2021 9:22
+16,Richard,Murray,Kevin,M,S,richard.murray@example.com,Johntown,1,5/9/2025,12/19/2022 19:14
+17,Elizabeth,Reyes,NULL,F,M,elizabeth.reyes@example.com,Anthonyfort,1,2/5/2023,5/25/2016 1:34
+18,Charles,Hayes,NULL,M,W,charles.hayes@example.com,Christinafort,1,9/21/2021,1/28/2022 16:45
+19,Linda,Russell,Joseph,F,D,linda.russell@example.com,South Brittany,1,10/9/2019,3/5/2018 8:41
+20,Daniel,Turner,NULL,M,S,daniel.turner@example.com,Ericfurt,0,8/19/2020,5/21/2018 11:51
