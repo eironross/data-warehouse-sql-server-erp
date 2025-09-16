@@ -1,5 +1,9 @@
--- Data Definition Language (DDL) script for Bronze layer tables in a Data Warehouse 
--- for SQL Server ERP
+/*
+    Data Definition Language (DDL) script for Bronze layer tables in a Data Warehouse for SQL Server ERP
+*/
+
+USE FONTAINT_DWH;
+GO
 
 -- Dimension Tables
 IF OBJECT_ID('BRONZE.Customer', 'U') IS NOT NULL
@@ -14,10 +18,8 @@ CREATE TABLE BRONZE.Customer (
     ,Email NVARCHAR(255)
     ,City NVARCHAR(100)
     ,IsActive BIT DEFAULT 1
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
+    ,CreatedDate DATE 
+    ,InsertedDate DATETIME
 );
 
 IF OBJECT_ID('BRONZE.Facility', 'U') IS NOT NULL
@@ -29,11 +31,8 @@ CREATE TABLE BRONZE.Facility (
     ,Region NVARCHAR(50)
     ,Capacity INT
     ,IsActive BIT DEFAULT 1
+    ,CreatedDate DATE
     ,BeginOps DATE
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
 );
 
 IF OBJECT_ID('BRONZE.Products', 'U') IS NOT NULL
@@ -45,10 +44,8 @@ CREATE TABLE BRONZE.Products (
     ,Category NVARCHAR(100)
     ,Price DECIMAL(11,2)
     ,IsActive BIT DEFAULT 1
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
+    ,CreatedDate DATE
+    ,UpdatedDate DATETIME 
 )
 
 -- Fact Tables
@@ -59,10 +56,6 @@ CREATE TABLE BRONZE.OrderHeader (
     ,BillDates DATE
     ,PaidInFull BIT
     ,Status NVARCHAR(50)
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
 );
 
 IF OBJECT_ID('BRONZE.OrderDetails', 'U') IS NOT NULL
@@ -75,10 +68,6 @@ CREATE TABLE BRONZE.OrderDetails (
     ,FacilityKey INT
     ,TransactionDate DATE
     ,BillDate DATE
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
 );
 
 IF OBJECT_ID('BRONZE.CashTransactions', 'U') IS NOT NULL
@@ -90,8 +79,4 @@ CREATE TABLE BRONZE.CashTransactions (
     ,TransactionDate DATE
     ,CollectionPeiod DATE
     ,PaymentAmount DECIMAL(11,2)
-    ,CreatedDate DATETIME DEFAULT GETDATE()
-    ,InsertedDate DATETIME DEFAULT GETDATE()
-    ,UpdatedDate DATETIME DEFAULT GETDATE()
-    ,SourceSystem NVARCHAR(50) DEFAULT 'FONTAINT_DWH'
 );

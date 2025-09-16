@@ -1,5 +1,15 @@
 # Changelog of the Project
 
+## September 17, 2025
+
+### Bronze
+- modified the ddl script 
+- added the stored procedure for loading bronze table, reminder to replace the mypath to the absolute path of the csv files
+
+### Silver
+- added the ddl script for the silver layer, added a metadata information
+- created a place holder sql for the sp of the silver layer
+
 ## September 16, 2025
 
 ### Bronze
