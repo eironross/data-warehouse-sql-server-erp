@@ -1,5 +1,12 @@
 # Changelog of the Project
 
+## September 19, 2025
+
+### Silver
+- Added a sp_cashtransactions, stored procedure for the cash transaction from bronze to silver
+- Added a sql script to load once the customer tables
+- Modified the sql ddl for silver
+
 ## September 17, 2025
 
 ### Bronze

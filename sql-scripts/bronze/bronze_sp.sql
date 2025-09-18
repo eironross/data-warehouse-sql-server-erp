@@ -7,7 +7,7 @@ Ensure the path ends with a backslash (\) and is enclosed in single quotes.
 WARNING: mypath + filename should be replaced with the actual path and filename. This does not work as is
 */
 
-USE FOINTAINT_DWH;
+USE FONTAINE_DWH;
 GO
 
 CREATE OR ALTER PROCEDURE [BRONZE].[sp_load_bronze] AS 

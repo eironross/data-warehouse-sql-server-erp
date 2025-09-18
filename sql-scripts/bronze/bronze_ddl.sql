@@ -2,7 +2,7 @@
     Data Definition Language (DDL) script for Bronze layer tables in a Data Warehouse for SQL Server ERP
 */
 
-USE FONTAINT_DWH;
+USE FONTAINE_DWH;
 GO
 
 -- Dimension Tables
@@ -77,6 +77,6 @@ CREATE TABLE BRONZE.CashTransactions (
     ,OrderDetailKey INT
     ,DepositCheck NVARCHAR(100)
     ,TransactionDate DATE
-    ,CollectionPeiod DATE
+    ,CollectionPeriod DATE
     ,PaymentAmount DECIMAL(11,2)
 );
