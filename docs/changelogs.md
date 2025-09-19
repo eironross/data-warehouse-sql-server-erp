@@ -1,5 +1,15 @@
 # Changelog of the Project
 
+## Sepetember 20, 2025
+
+### Silver
+- Added new sp, orderheader and orderdetails (hot storage)
+- Customer, products and facility added script but this will only run once or rarely (cold storage)
+- Modified all ddl for the silver layer to align with the transformation
+
+### Gold
+- Added DimDate scripts to generate the dates table
+
 ## September 19, 2025
 
 ### Silver
