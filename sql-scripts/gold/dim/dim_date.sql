@@ -1,47 +1,37 @@
 DECLARE @StartDate DATE = '2000-01-01';
 DECLARE @EndDate   DATE = '2030-12-31';
 
-;WITH Dates AS (
-    SELECT @StartDate AS TheDate
+;WITH Dates AS
+(
+    SELECT @StartDate AS DateValue
     UNION ALL
-    SELECT DATEADD(DAY, 1, TheDate)
+    SELECT DATEADD(DAY, 1, DateValue)
     FROM Dates
-    WHERE TheDate < @EndDate
+    WHERE DateValue < @EndDate
 )
-INSERT INTO DimDate
-SELECT 
-    CONVERT(CHAR(8), TheDate, 112) AS DateKey,       -- YYYYMMDD
-    TheDate AS FullDate,
-    DAY(TheDate) AS DayNumber,
-    DATENAME(WEEKDAY, TheDate) AS DayName,
-    DATEPART(WEEK, TheDate) AS WeekNumber,
-    MONTH(TheDate) AS MonthNumber,
-    DATENAME(MONTH, TheDate) AS MonthName,
-    DATENAME(MONTH, TheDate) + ' ' + CAST(YEAR(TheDate) AS VARCHAR(4)) AS MonthNameYear,
-    DATEPART(QUARTER, TheDate) AS QuarterNumber,
-    'Q' + CAST(DATEPART(QUARTER, TheDate) AS VARCHAR(1)) AS QuarterName,
-    YEAR(TheDate) AS YearNumber,
-    CASE WHEN DATENAME(WEEKDAY, TheDate) IN ('Saturday','Sunday') THEN 1 ELSE 0 END AS IsWeekend,
-
-    -- Fiscal Year: starts July 1
-    CASE 
-        WHEN MONTH(TheDate) >= 7 THEN YEAR(TheDate) + 1 -- July-Dec → next year
-        ELSE YEAR(TheDate)                              -- Jan-Jun → current year
-    END AS FiscalYear,
-
-    -- Fiscal Year Start (always July 1 of prior year if Jan-Jun, else July 1 of current year)
-    CASE 
-        WHEN MONTH(TheDate) >= 7 
-            THEN CAST(CAST(YEAR(TheDate) AS CHAR(4)) + '-07-01' AS DATE)
-        ELSE CAST(CAST(YEAR(TheDate)-1 AS CHAR(4)) + '-07-01' AS DATE)
-    END AS FiscalYearStart,
-
-    -- Fiscal Year End (always June 30 of fiscal year)
-    CASE 
-        WHEN MONTH(TheDate) >= 7 
-            THEN CAST(CAST(YEAR(TheDate)+1 AS CHAR(4)) + '-06-30' AS DATE)
-        ELSE CAST(CAST(YEAR(TheDate) AS CHAR(4)) + '-06-30' AS DATE)
-    END AS FiscalYearEnd
-
+INSERT INTO GOLD.DimDate
+SELECT
+    CONVERT(INT, FORMAT(DateValue, 'yyyyMMdd')) AS DateKey,
+    DateValue AS [Date],
+    DATEPART(DAY, DateValue) AS DayNumber,
+    DATENAME(WEEKDAY, DateValue) AS DayName,
+    DATEPART(WEEK, DateValue) AS WeekNumber,
+    DATEPART(MONTH, DateValue) AS MonthNumber,
+    LEFT(DATENAME(MONTH, DateValue), 3) AS MonthNameShort,
+    LEFT(DATENAME(MONTH, DateValue), 3) + ' ' + CAST(YEAR(DateValue) AS VARCHAR(4)) AS MonthNameYearShort,
+    DATENAME(MONTH, DateValue) + ' ' + CAST(YEAR(DateValue) AS VARCHAR(4)) AS MonthNameYearLong,
+    DATEPART(QUARTER, DateValue) AS QuarterNumber,
+    'Q' + CAST(DATEPART(QUARTER, DateValue) AS VARCHAR(1)) AS QuarterName,
+    YEAR(DateValue) AS YearNumber,
+    CASE WHEN DATEPART(WEEKDAY, DateValue) IN (1,7) THEN 1 ELSE 0 END AS IsWeekend,
+    CASE WHEN DATEPART(MONTH, DateValue) >= 7 THEN YEAR(DateValue) + 1 ELSE YEAR(DateValue) END AS FiscalYear,
+    CAST(CASE WHEN DATEPART(MONTH, DateValue) >= 7 
+              THEN CAST(YEAR(DateValue) AS VARCHAR(4)) + '-07-01'
+              ELSE CAST(YEAR(DateValue)-1 AS VARCHAR(4)) + '-07-01'
+         END AS DATE) AS FiscalYearStart,
+    CAST(CASE WHEN DATEPART(MONTH, DateValue) >= 7 
+              THEN CAST(YEAR(DateValue)+1 AS VARCHAR(4)) + '-06-30'
+              ELSE CAST(YEAR(DateValue) AS VARCHAR(4)) + '-06-30'
+         END AS DATE) AS FiscalYearEnd
 FROM Dates
 OPTION (MAXRECURSION 0);

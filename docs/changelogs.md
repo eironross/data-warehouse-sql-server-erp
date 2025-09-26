@@ -1,5 +1,12 @@
 # Changelog of the Project
 
+## September 26, 2025
+
+### Gold
+- Added script to create views for Customers, FactSales, FactAR & Facility
+- Added script to create table for DimDate
+- Modified the script for the Dimdate DDL
+
 ## Sepetember 20, 2025
 
 ### Silver
